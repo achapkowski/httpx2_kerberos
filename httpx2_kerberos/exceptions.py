@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from httpx import HTTPError, RequestError
+from httpx2 import HTTPError, RequestError
 
 if TYPE_CHECKING:
-    from httpx import Response
+    from httpx2 import Response
 
 
 class NegotiationStepFailedWarning(Warning):

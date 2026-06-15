@@ -1,3 +1,6 @@
+**This is a fork from httpx-kerberos remade for httpx2**
+
+
 HTTPX Kerberos/GSSAPI Authentication Library
 ===============================================
 

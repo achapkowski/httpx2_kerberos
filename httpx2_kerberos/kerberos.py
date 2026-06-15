@@ -17,9 +17,9 @@ from cryptography import x509
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.exceptions import UnsupportedAlgorithm
-from httpx import Auth, Cookies, Headers
+from httpx2 import Auth, Cookies, Headers
 
-from httpx_kerberos.exceptions import (
+from httpx2_kerberos.exceptions import (
     KerberosExchangeError,
     KerberosUnsupported,
     MutualAuthenticationError,
@@ -30,10 +30,10 @@ from httpx_kerberos.exceptions import (
 
 if TYPE_CHECKING:
     from collections.abc import Generator
-    from httpx import Request, Response
+    from httpx2 import Request, Response
 
 
-_LOGGER = logging.getLogger("kerberos")
+_LOGGER = logging.getLogger("httpx2kerberos")
 _cached_certs: Dict[str, CachedCert] = {}
 _pattern = re.compile(r"Negotiate\s*([^,]*)", re.I)
 
@@ -61,7 +61,7 @@ def sanitize_response(response: Response) -> None:
     authentication when mutual authentication is required.
 
     Manipulates the response object in place because we cannot send back a new
-    response object to the client in HTTPX auth flow.
+    response object to the client in HTTPX2 auth flow.
     """
     inherit_headers = {
         k: response.headers[k] for k in ("date", "server") if k in response.headers
