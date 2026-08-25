@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Kerberos libraries on Linux
         if: runner.os == 'Linux'
@@ -41,7 +41,7 @@ jobs:
           echo "PKG_CONFIG_PATH=$(brew --prefix krb5)/lib/pkgconfig" >> "$GITHUB_ENV"
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
