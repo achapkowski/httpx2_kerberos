@@ -32,7 +32,7 @@ pyspnego==0.12.4
     # via httpx2-kerberos (pyproject.toml)
 sspilib==0.6.0 ; sys_platform == 'win32'
     # via pyspnego
-truststore==0.10.4 ; sys_platform != 'emscripten'
+truststore==0.10.5 ; sys_platform != 'emscripten'
     # via
     #   httpcore2
     #   httpx2
